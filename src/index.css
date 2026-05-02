@@ -824,6 +824,16 @@ main {
   flex-wrap: wrap;
 }
 
+.app-footer-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.app-footer-links a:hover {
+  text-decoration: underline;
+}
+
 /* Utility */
 
 .muted {
@@ -1650,6 +1660,82 @@ main {
 .landing-footer-inner {
   text-align: center;
   font-size: 0.85rem;
+}
+
+.landing-footer-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.landing-footer-links a {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.landing-footer-links a:hover {
+  text-decoration: underline;
+}
+
+.legal-doc .blog-title {
+  margin-bottom: 0.35rem;
+}
+
+.legal-doc-updated {
+  margin-bottom: 1.75rem !important;
+  max-width: 65ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.legal-doc-body {
+  text-align: left;
+  max-width: 65ch;
+  margin-inline: auto;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text);
+}
+
+.legal-doc-section {
+  margin-bottom: 1.75rem;
+}
+
+.legal-doc-section h2 {
+  font-family: var(--font-display);
+  font-size: 1.12rem;
+  font-weight: 700;
+  margin: 0 0 0.55rem;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.legal-doc-section p {
+  margin: 0 0 0.65rem;
+  color: var(--text-muted);
+}
+
+.legal-doc-section ul {
+  margin: 0 0 0.65rem;
+  padding-left: 1.35rem;
+  color: var(--text-muted);
+}
+
+.legal-doc-section li {
+  margin-bottom: 0.45rem;
+}
+
+.legal-doc-section strong {
+  color: var(--text);
+}
+
+.legal-doc-note {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: var(--text-muted);
 }
 
 .app--journal .wrap {

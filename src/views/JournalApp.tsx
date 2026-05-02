@@ -167,10 +167,15 @@ export function JournalApp({ user, signOut }: Props) {
       </main>
 
       <footer className="app-footer">
-        <div className="wrap">
+        <div className="wrap app-footer-row">
           <span>
             Tenure Trail · {store.entries.length}{" "}
             {store.entries.length === 1 ? "entry" : "entries"} synced to your account
+          </span>
+          <span className="app-footer-links">
+            <a href="/privacy">Privacy</a>
+            <span aria-hidden="true"> · </span>
+            <a href="/terms">Terms</a>
           </span>
           <span className="muted">
             {syncState === "loading" && "Loading…"}

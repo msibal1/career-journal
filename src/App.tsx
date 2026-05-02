@@ -1,22 +1,20 @@
 import { useState } from "react";
 import { useAuth } from "./lib/auth";
+import { getMarketingPath } from "./lib/marketingPaths";
 import { Landing } from "./views/Landing";
 import { BlogView } from "./views/BlogView";
+import { PrivacyView } from "./views/PrivacyView";
+import { TermsView } from "./views/TermsView";
 import { JournalApp } from "./views/JournalApp";
 import { AuthModal } from "./components/AuthModal";
 import { supabaseConfigured } from "./lib/supabase";
 
-function isBlogPath(): boolean {
-  if (typeof window === "undefined") return false;
-  const p = window.location.pathname.replace(/\/$/, "") || "/";
-  return p === "/blog";
-}
-
 export default function App() {
   const auth = useAuth();
   const [authOpen, setAuthOpen] = useState(false);
+  const marketingPath = getMarketingPath();
 
-  if (auth.loading && !isBlogPath()) {
+  if (auth.loading && !marketingPath) {
     return (
       <div className="app-loading">
         <span className="brand">
@@ -28,7 +26,15 @@ export default function App() {
     );
   }
 
-  if (isBlogPath()) {
+  const authModal = (
+    <AuthModal
+      open={authOpen}
+      onClose={() => setAuthOpen(false)}
+      onSubmit={auth.sendMagicLink}
+    />
+  );
+
+  if (marketingPath === "blog") {
     return (
       <>
         <BlogView
@@ -36,11 +42,33 @@ export default function App() {
           onSignIn={() => setAuthOpen(true)}
           configured={supabaseConfigured}
         />
-        <AuthModal
-          open={authOpen}
-          onClose={() => setAuthOpen(false)}
-          onSubmit={auth.sendMagicLink}
+        {authModal}
+      </>
+    );
+  }
+
+  if (marketingPath === "privacy") {
+    return (
+      <>
+        <PrivacyView
+          user={auth.user}
+          onSignIn={() => setAuthOpen(true)}
+          configured={supabaseConfigured}
         />
+        {authModal}
+      </>
+    );
+  }
+
+  if (marketingPath === "terms") {
+    return (
+      <>
+        <TermsView
+          user={auth.user}
+          onSignIn={() => setAuthOpen(true)}
+          configured={supabaseConfigured}
+        />
+        {authModal}
       </>
     );
   }
@@ -52,11 +80,7 @@ export default function App() {
           configured={supabaseConfigured}
           onGetStarted={() => setAuthOpen(true)}
         />
-        <AuthModal
-          open={authOpen}
-          onClose={() => setAuthOpen(false)}
-          onSubmit={auth.sendMagicLink}
-        />
+        {authModal}
       </>
     );
   }

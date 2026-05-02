@@ -215,7 +215,14 @@ export function Landing({ onGetStarted, configured }: Props) {
       </section>
 
       <footer className="landing-footer">
-        <div className="wrap landing-footer-inner">
+        <div className="wrap landing-footer-inner landing-footer-stack">
+          <div className="landing-footer-links">
+            <a href="/privacy">Privacy</a>
+            <span aria-hidden="true"> · </span>
+            <a href="/terms">Terms</a>
+            <span aria-hidden="true"> · </span>
+            <a href="/blog">Blog</a>
+          </div>
           <span className="muted">
             Tenure Trail is an educational tool, not legal or career advice.
           </span>

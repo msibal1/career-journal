@@ -11,7 +11,15 @@ export default defineConfig({
         server.middlewares.use((req, _res, next) => {
           if (req.method !== "GET" || !req.url) return next();
           const path = req.url.split("?")[0];
-          if (path === "/blog" || path === "/blog/") {
+          const spaPaths = new Set([
+            "/blog",
+            "/blog/",
+            "/privacy",
+            "/privacy/",
+            "/terms",
+            "/terms/",
+          ]);
+          if (spaPaths.has(path)) {
             req.url = "/index.html" + (req.url.includes("?") ? "?" + req.url.split("?")[1] : "");
           }
           next();
@@ -21,7 +29,15 @@ export default defineConfig({
         server.middlewares.use((req, _res, next) => {
           if (req.method !== "GET" || !req.url) return next();
           const path = req.url.split("?")[0];
-          if (path === "/blog" || path === "/blog/") {
+          const spaPaths = new Set([
+            "/blog",
+            "/blog/",
+            "/privacy",
+            "/privacy/",
+            "/terms",
+            "/terms/",
+          ]);
+          if (spaPaths.has(path)) {
             req.url = "/index.html" + (req.url.includes("?") ? "?" + req.url.split("?")[1] : "");
           }
           next();
