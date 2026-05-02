@@ -18,7 +18,7 @@ export function BlogView({ user, onSignIn, configured }: Props) {
     const metaDesc = document.querySelector('meta[name="description"]');
     const prevDesc = metaDesc?.getAttribute("content") ?? "";
     const blogDesc =
-      "Why logging wins weekly beats cramming before performance reviews, comp talks, and job interviews — and how to start in under 15 minutes a week.";
+      "Why logging wins weekly beats cramming before performance reviews, comp talks, and job interviews, plus how to start in under 15 minutes a week.";
     metaDesc?.setAttribute("content", blogDesc);
 
     let canonical = document.querySelector('link[rel="canonical"]');
@@ -89,7 +89,7 @@ export function BlogView({ user, onSignIn, configured }: Props) {
             The 15-minute habit that makes performance reviews and interviews easier
           </h1>
           <p className="blog-dek">
-            A practical guide to documenting impact while it&apos;s fresh — so you
+            A practical guide to documenting impact while it&apos;s fresh, so you
             don&apos;t rebuild your year from memory under pressure.
           </p>
           <p className="blog-meta muted">
@@ -109,7 +109,7 @@ export function BlogView({ user, onSignIn, configured }: Props) {
 
           <p>
             The habit is simple: <strong>once a week, write down what you actually did</strong>{" "}
-            — in language you could show a manager, not just a private diary.
+            in language you could show a manager, not just a private diary.
           </p>
 
           <h2>Why &quot;I&apos;ll remember later&quot; doesn&apos;t work</h2>
@@ -118,12 +118,12 @@ export function BlogView({ user, onSignIn, configured }: Props) {
             Your brain is built to move on. By the time the fourth quarter arrives, the
             release you shepherded in March, the process you fixed in June, and the
             cross-team issue you untangled in August have blurred into &quot;I had a busy
-            year.&quot; Busy is not a strategy — <strong>specifics</strong> are.
+            year.&quot; Busy is not a strategy. <strong>Specifics</strong> are.
           </p>
 
           <p>
             Hiring managers and leadership don&apos;t respond to &quot;I work hard.&quot; They
-            respond to <strong>scope, outcomes, and evidence</strong> — ideally with{" "}
+            respond to <strong>scope, outcomes, and evidence</strong>, ideally with{" "}
             <strong>numbers</strong> when you have them (time saved, revenue, reliability,
             cycle time, satisfaction).
           </p>
@@ -131,7 +131,7 @@ export function BlogView({ user, onSignIn, configured }: Props) {
           <p>
             If you didn&apos;t write those details down when the work was fresh, you end up{" "}
             <strong>reconstructing your year under stress</strong>, which produces generic
-            bullets and weak stories. That&apos;s usually not a character flaw — it&apos;s a{" "}
+            bullets and weak stories. That&apos;s usually not a character flaw. It&apos;s a{" "}
             <strong>memory problem</strong>.
           </p>
 
@@ -146,16 +146,16 @@ export function BlogView({ user, onSignIn, configured }: Props) {
 
           <ul>
             <li>
-              <strong>1–3 wins</strong> — what shipped, what you unblocked, what you owned.
+              <strong>1 to 3 wins</strong> (what shipped, what you unblocked, what you owned).
             </li>
             <li>
-              <strong>Metrics</strong> when you have them — rough beats vague.
+              <strong>Metrics</strong> when you have them; rough beats vague.
             </li>
             <li>
-              <strong>Scope tags</strong> — product area, team, or project name.
+              <strong>Scope tags</strong> (product area, team, or project name).
             </li>
             <li>
-              <strong>One line of context</strong> — why it mattered (customer, revenue, risk,
+              <strong>One line of context</strong> on why it mattered (customer, revenue, risk,
               quality).
             </li>
           </ul>
@@ -163,7 +163,7 @@ export function BlogView({ user, onSignIn, configured }: Props) {
           <p>
             That combination is enough for <strong>resume bullets</strong>,{" "}
             <strong>STAR-style interview answers</strong>, and{" "}
-            <strong>self-review paragraphs</strong> later — because you&apos;re storing story
+            <strong>self-review paragraphs</strong> later, because you&apos;re storing story
             and proof in the same place.
           </p>
 
@@ -182,7 +182,7 @@ export function BlogView({ user, onSignIn, configured }: Props) {
 
           <p>
             <strong>Job searches.</strong> Recruiters and panels ask for examples. You want{" "}
-            <strong>bullets and stories</strong> pulled from what you logged — not what you
+            <strong>bullets and stories</strong> pulled from what you logged, not what you
             scrambled to remember on Sunday night.
           </p>
 
@@ -193,8 +193,8 @@ export function BlogView({ user, onSignIn, configured }: Props) {
           <h2>The smallest commitment that still works</h2>
 
           <p>
-            If full documentation feels heavy, pick one slot —{" "}
-            <strong>Friday afternoon or Monday morning</strong> — and protect it. Miss a week?
+            If full documentation feels heavy, pick one slot,{" "}
+            <strong>Friday afternoon or Monday morning</strong>, and protect it. Miss a week?
             Don&apos;t quit the habit; restart the next week. A partial trail beats a perfect
             system you never use.
           </p>
@@ -203,20 +203,20 @@ export function BlogView({ user, onSignIn, configured }: Props) {
 
           <p>
             You don&apos;t need another complicated productivity stack. You need one trusted
-            place where wins and metrics live until you need them — for your review, your
+            place where wins and metrics live until you need them: your review, your
             comp conversation, or your next role.
           </p>
 
           <p>
             <strong>Tenure Trail</strong> is built around that idea: a structured weekly
-            journal that turns into exports when those moments hit — without rebuilding your
+            journal that turns into exports when those moments hit, without rebuilding your
             year from memory.
           </p>
         </div>
 
         <aside className="blog-cta card-soft">
           <p className="blog-cta-lead">
-            Start free with email — passwordless sign-in; your journal syncs to your account.
+            Start free with email (passwordless sign-in). Your journal syncs to your account.
           </p>
           <div className="blog-cta-actions">
             {user ? (
@@ -240,7 +240,7 @@ export function BlogView({ user, onSignIn, configured }: Props) {
       <footer className="landing-footer">
         <div className="wrap landing-footer-inner">
           <span className="muted">
-            Tenure Trail — educational tool, not legal or career advice.
+            Tenure Trail is an educational tool, not legal or career advice.
           </span>
         </div>
       </footer>
