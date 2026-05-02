@@ -75,19 +75,44 @@ career-journal/
 
 ## What it intentionally doesn't have yet
 
-- Accounts, multi-device sync (would use Supabase free tier)
-- Subscription billing (would use Stripe Checkout)
-- AI-generated bullets and STAR stories (would call OpenAI/Anthropic per-request, ~$0.001 per generation)
-- Email reminders (need a backend)
+- Subscription billing (Stripe Checkout)
+- AI-generated bullets and STAR stories (optional API calls)
+- Email reminders (needs a backend or Supabase Edge)
 
-These are the natural v2 additions once people actually use v1.
+## Go live (production)
 
-## Deploying
+This is a **static Vite build** (`npm run build` → `dist/`). Env vars **must** be set on the host (they are **not** in GitHub — `.env.local` is gitignored).
 
-Front-end only, so any static host works. Easiest options:
+### Recommended: Vercel + GitHub
 
-- **Netlify Drop** — drag the `dist/` folder onto [app.netlify.com/drop](https://app.netlify.com/drop) after `npm run build`. Free, instant URL.
-- **Vercel / Cloudflare Pages** — connect the GitHub repo, point at this folder, default build command (`npm run build`), output dir `dist/`.
+1. Sign up at [vercel.com](https://vercel.com) with **Continue with GitHub**.
+2. **Add New Project** → import **`msibal1/career-journal`**.
+3. Vercel should detect **Vite** automatically. Confirm:
+   - **Build command:** `npm run build`
+   - **Output directory:** `dist`
+4. Under **Environment Variables**, add (same values as your local `.env.local`):
+   - `VITE_SUPABASE_URL` = your Supabase project URL (e.g. `https://xxhozrirrpxwpgvgwrnc.supabase.co`)
+   - `VITE_SUPABASE_PUBLISHABLE_KEY` = your **publishable / anon** key from Supabase **Project Settings → API**
+5. Click **Deploy**. You’ll get a URL like `https://career-journal-xxx.vercel.app`.
+
+### Supabase (required or magic links break)
+
+In Supabase: **Authentication → URL Configuration**
+
+- **Site URL:** your production URL (e.g. `https://career-journal-xxx.vercel.app`)
+- **Redirect URLs:** add `https://your-live-domain.vercel.app/**`  
+  Keep `http://localhost:5173/**` for local dev.
+
+Redeploy on Vercel after changing env vars if needed (**Deployments → … → Redeploy**).
+
+### Alternatives
+
+- **Netlify:** Connect the same GitHub repo; `netlify.toml` sets build/publish. Add the same `VITE_*` variables in site settings.
+- **Cloudflare Pages:** Build `npm run build`, output `dist`, same env vars.
+
+### Smoke test after deploy
+
+Open the live URL in an **incognito** window → landing → **Start free — email only** → magic link → log one entry.
 
 ## Distribution ideas (the part that takes real work)
 
