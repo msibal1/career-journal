@@ -25,13 +25,16 @@ export function Landing({ onGetStarted, configured }: Props) {
 
       <section className="landing-hero">
         <div className="wrap landing-hero-inner">
-          <p className="landing-eyebrow">Built for performance reviews &amp; job hunts</p>
+          <p className="landing-eyebrow">
+            Weekly career documentation, built for high-stakes moments
+          </p>
           <h1 className="landing-title">
-            Stop forgetting your wins before they become promotions.
+            A structured journal for your professional wins and metrics
           </h1>
           <p className="landing-lede">
-            Five minutes a week → a ready-made story when your manager asks what you
-            shipped, when HR opens comp discussion, or when a recruiter wants proof.
+            Spend a few minutes each week logging outcomes and evidence. When it&apos;s
+            time for a review, a raise discussion, or an interview, export polished
+            bullets and narratives instead of reconstructing the year from memory.
           </p>
           {!configured ? (
             <p className="landing-warning">
@@ -49,11 +52,11 @@ export function Landing({ onGetStarted, configured }: Props) {
                 className="btn primary landing-cta-btn"
                 onClick={onGetStarted}
               >
-                Start free — email only
+                Start free with email
               </button>
               <p className="landing-cta-note">
-                No password. We&apos;ll email you a one-click link. Your journal syncs
-                to your account — phone, laptop, anywhere.
+                No password — we send a secure sign-in link. Your journal syncs to your
+                account on web and mobile.
               </p>
             </div>
           )}
@@ -62,22 +65,22 @@ export function Landing({ onGetStarted, configured }: Props) {
 
       <section className="landing-section landing-outcomes">
         <div className="wrap">
-          <h2 className="landing-section-title">What you actually get</h2>
+          <h2 className="landing-section-title">Where this shows up for you</h2>
           <p className="landing-section-intro">
-            Not another productivity app — a career asset that pays off at three moments:
+            One habit through the year — three situations where prepared beats improvised:
           </p>
           <ul className="landing-outcome-list">
             <li>
-              <strong>Annual review</strong> — paste a generated self-review draft with
-              wins and metrics already grouped. No Sunday-night scramble.
+              <strong>Performance reviews</strong> — start from a generated self-review
+              draft with wins and metrics grouped by period, then edit in your voice.
             </li>
             <li>
-              <strong>Salary conversation</strong> — bring receipts: numbers, scope,
-              and impact you logged when they were fresh.
+              <strong>Compensation discussions</strong> — cite scope, outcomes, and
+              figures you captured when the work was still current.
             </li>
             <li>
-              <strong>New role interviews</strong> — export resume bullets and STAR
-              stories without rewriting history from memory.
+              <strong>Hiring processes</strong> — export resume bullets and STAR stories
+              aligned with what you actually shipped — no retroactive guesswork.
             </li>
           </ul>
         </div>
@@ -85,27 +88,27 @@ export function Landing({ onGetStarted, configured }: Props) {
 
       <section className="landing-section landing-alt">
         <div className="wrap">
-          <h2 className="landing-section-title">Why memory loses you money</h2>
+          <h2 className="landing-section-title">Why informal memory isn&apos;t enough</h2>
           <div className="landing-grid">
             <article className="landing-card">
-              <h3>You forget 90% of wins by Q4</h3>
+              <h3>Impact fades faster than you expect</h3>
               <p>
-                The bug you fixed in March doesn&apos;t exist in your head by December —
-                unless you wrote it down when your brain still cared.
+                Details from earlier in the year are hard to recover under deadline —
+                unless you record them when projects and numbers are still at hand.
               </p>
             </article>
             <article className="landing-card">
-              <h3>&quot;I'm a hard worker&quot; loses to numbers</h3>
+              <h3>Strong cases pair narrative with evidence</h3>
               <p>
-                Managers promote narratives backed by metrics. This app makes you capture
-                both in the same breath — win + number + skill tag.
+                Reviews and interviews reward specificity: outcomes, metrics, and scope.
+                Tenure Trail helps you log wins and supporting data in one pass.
               </p>
             </article>
             <article className="landing-card">
-              <h3>Your competition keeps receipts</h3>
+              <h3>Lightweight by design</h3>
               <p>
-                The person next to you is documenting. You can too — without a Notion PhD
-                or a spreadsheet graveyard.
+                No complex workspace setup — a focused weekly flow, then exports when you
+                need resume bullets, STAR answers, or a markdown archive.
               </p>
             </article>
           </div>
@@ -114,7 +117,7 @@ export function Landing({ onGetStarted, configured }: Props) {
 
       <section className="landing-section">
         <div className="wrap">
-          <h2 className="landing-section-title">Everything included</h2>
+          <h2 className="landing-section-title">Included in Tenure Trail</h2>
           <div className="landing-features">
             <div className="landing-feature">
               <span className="landing-feature-icon" aria-hidden="true">
@@ -166,10 +169,10 @@ export function Landing({ onGetStarted, configured }: Props) {
 
       <section className="landing-section landing-cta-block">
         <div className="wrap landing-cta-inner">
-          <h2>Ready when your career moment hits</h2>
+          <h2>Be ready for reviews, comp, and interviews</h2>
           <p>
-            Create your account with email — free to use. Sign out anytime; your data
-            stays tied to your account until you delete it.
+            Free to use with email sign-in. Sign out anytime; your entries stay with your
+            account until you remove them.
           </p>
           <button
             type="button"
@@ -177,7 +180,7 @@ export function Landing({ onGetStarted, configured }: Props) {
             onClick={onGetStarted}
             disabled={!configured}
           >
-            Get started with email
+            Create your account
           </button>
         </div>
       </section>
