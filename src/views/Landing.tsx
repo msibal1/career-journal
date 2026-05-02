@@ -35,8 +35,12 @@ export function Landing({ onGetStarted, configured }: Props) {
           </p>
           {!configured ? (
             <p className="landing-warning">
-              App isn&apos;t connected yet — add Supabase keys in{" "}
-              <code>.env.local</code>.
+              Supabase isn&apos;t wired into this build yet. Add{" "}
+              <strong>VITE_SUPABASE_URL</strong> and{" "}
+              <strong>VITE_SUPABASE_PUBLISHABLE_KEY</strong> in{" "}
+              <strong>Vercel → Settings → Environment Variables</strong> for{" "}
+              <strong>Production and Preview</strong>, then <strong>Redeploy</strong>.
+              For local dev only: put them in <code>.env.local</code>.
             </p>
           ) : (
             <div className="landing-hero-cta">
