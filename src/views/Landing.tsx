@@ -81,7 +81,10 @@ export function Landing({ onGetStarted, configured }: Props) {
           <div className="wrap">
             <h2 className="landing-section-title">Where this shows up for you</h2>
             <p className="landing-section-intro">
-              One habit through the year. Three situations where prepared beats improvised:
+              One habit through the year.{" "}
+              <span className="landing-intro-nowrap">
+                Three situations where prepared beats improvised:
+              </span>
             </p>
             <ul className="landing-outcome-list">
               <li>
@@ -117,7 +120,7 @@ export function Landing({ onGetStarted, configured }: Props) {
                 </p>
               </article>
               <article className="landing-card landing-card--tilt">
-                <h3>Strong cases pair narrative with evidence</h3>
+                <h3>Pair narrative with evidence</h3>
                 <p>
                   Reviews and interviews reward specificity: outcomes, metrics, and scope.
                   Tenure Trail helps you log wins and supporting data in one pass.
