@@ -92,8 +92,9 @@ export function AuthModal({ open, onClose, onSubmit }: Props) {
         {status !== "sent" && (
           <>
             <p className="muted" style={{ margin: "0 0 1.25rem" }}>
-              We'll send a one‑click sign‑in link. No password to remember. Your
-              data stays private to your account.
+              We&apos;ll send a one-click sign-in link. Only request it once per
+              few minutes (shared limit for all users). Check spam if it&apos;s
+              slow.
             </p>
 
             <form onSubmit={handleSubmit}>
@@ -117,6 +118,7 @@ export function AuthModal({ open, onClose, onSubmit }: Props) {
                     color: "var(--danger)",
                     fontSize: "0.9rem",
                     margin: "0 0 0.85rem",
+                    lineHeight: 1.45,
                   }}
                 >
                   {error}
@@ -146,7 +148,8 @@ export function AuthModal({ open, onClose, onSubmit }: Props) {
               link in that email and you'll be signed in here automatically.
             </p>
             <p className="muted" style={{ fontSize: "0.9rem" }}>
-              Don't see it? Check spam, or close this and try again.
+              Don&apos;t see it? Check spam. If many people signed up at once,
+              wait a bit before requesting another link.
             </p>
             <div
               className="row"

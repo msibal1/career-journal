@@ -1,6 +1,24 @@
 import { useEffect, useState, useCallback } from "react";
-import type { Session, User } from "@supabase/supabase-js";
+import type { AuthError, Session, User } from "@supabase/supabase-js";
 import { supabase, supabaseConfigured } from "./supabase";
+
+function friendlyAuthError(error: AuthError): Error {
+  const msg = error.message ?? "";
+  const rateLimited =
+    error.status === 429 ||
+    /rate limit|too many|security purposes.*only request|over_email_send/i.test(
+      msg
+    );
+
+  if (rateLimited) {
+    return new Error(
+      "Email sign-in is temporarily limited (too many magic links were requested). " +
+        "Wait about an hour and try once, or ask the operator to connect a custom email provider in Supabase (SMTP) for higher limits and better deliverability."
+    );
+  }
+
+  return new Error(msg || "Sign-in failed. Please try again.");
+}
 
 export type AuthState = {
   session: Session | null;
@@ -58,7 +76,7 @@ export function useAuth() {
         emailRedirectTo: window.location.origin,
       },
     });
-    if (error) throw error;
+    if (error) throw friendlyAuthError(error);
   }, []);
 
   const signOut = useCallback(async () => {
