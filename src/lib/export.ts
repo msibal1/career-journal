@@ -66,7 +66,7 @@ function renderStar(entries: Entry[]): string {
 
 function renderMarkdown(entries: Entry[]): string {
   if (!entries.length) return "_No entries in this range yet._";
-  const out: string[] = ["# Career Journal Export", ""];
+  const out: string[] = ["# Tenure Trail export", ""];
   const months = groupByMonth(entries);
   for (const [month, group] of months) {
     out.push(`## ${month}`, "");

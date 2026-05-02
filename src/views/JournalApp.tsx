@@ -76,7 +76,7 @@ export function JournalApp({ user, signOut }: Props) {
         <div className="wrap app-header-inner">
           <a className="brand" href="#home" onClick={() => setView("home")}>
             <span className="brand-mark" aria-hidden="true" />
-            Career Journal
+            Tenure Trail
           </a>
           <nav className="app-nav" aria-label="Primary">
             {NAV.map((n) => (
@@ -169,7 +169,7 @@ export function JournalApp({ user, signOut }: Props) {
       <footer className="app-footer">
         <div className="wrap">
           <span>
-            Career Journal · {store.entries.length}{" "}
+            Tenure Trail · {store.entries.length}{" "}
             {store.entries.length === 1 ? "entry" : "entries"} synced to your account
           </span>
           <span className="muted">

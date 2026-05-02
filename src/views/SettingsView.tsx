@@ -31,11 +31,14 @@ export function SettingsView({
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `career-journal-${new Date().toISOString().slice(0, 10)}.json`;
+    a.download = `tenure-trail-backup-${new Date().toISOString().slice(0, 10)}.json`;
+    a.rel = "noopener";
     document.body.appendChild(a);
     a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    window.setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 800);
   }
 
   function pickImport() {
@@ -177,7 +180,7 @@ export function SettingsView({
       </div>
 
       <p className="muted" style={{ fontSize: "0.85rem" }}>
-        Career Journal is a tool for reflection. It is not a substitute for
+        Tenure Trail is a tool for reflection. It is not a substitute for
         professional career, financial, or legal advice.
       </p>
     </>

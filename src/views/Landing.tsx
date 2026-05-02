@@ -10,7 +10,7 @@ export function Landing({ onGetStarted, configured }: Props) {
         <div className="wrap landing-header-inner">
           <span className="landing-brand">
             <span className="brand-mark" aria-hidden="true" />
-            Career Journal
+            Tenure Trail
           </span>
           <button
             type="button"
@@ -184,7 +184,7 @@ export function Landing({ onGetStarted, configured }: Props) {
 
       <footer className="landing-footer">
         <div className="wrap landing-footer-inner">
-          <span className="muted">Career Journal — educational tool, not legal or career advice.</span>
+          <span className="muted">Tenure Trail — educational tool, not legal or career advice.</span>
         </div>
       </footer>
     </div>

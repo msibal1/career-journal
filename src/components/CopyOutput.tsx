@@ -23,15 +23,20 @@ export function CopyOutput({ text }: Props) {
   }
 
   function download() {
-    const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+    const blob = new Blob([text], { type: "text/markdown;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = `career-journal-${new Date().toISOString().slice(0, 10)}.md`;
+    a.download = `tenure-trail-export-${new Date().toISOString().slice(0, 10)}.md`;
+    a.rel = "noopener";
     document.body.appendChild(a);
     a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Revoking immediately breaks downloads in Safari / some Chromium builds — wait until the
+    // browser has grabbed the blob.
+    window.setTimeout(() => {
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }, 800);
   }
 
   return (

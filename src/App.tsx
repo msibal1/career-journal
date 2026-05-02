@@ -14,7 +14,7 @@ export default function App() {
       <div className="app-loading">
         <span className="brand">
           <span className="brand-mark" aria-hidden="true" />
-          Career Journal
+          Tenure Trail
         </span>
         <p className="muted">Loading…</p>
       </div>
