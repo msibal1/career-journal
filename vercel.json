@@ -5,5 +5,9 @@
       "destination": "/favicon.svg",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    { "source": "/blog", "destination": "/index.html" },
+    { "source": "/blog/", "destination": "/index.html" }
   ]
 }

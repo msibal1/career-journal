@@ -7,19 +7,24 @@ export function Landing({ onGetStarted, configured }: Props) {
   return (
     <div className="landing">
       <header className="landing-header">
-        <div className="wrap landing-header-inner">
+        <div className="wrap landing-header-inner landing-header-inner--spread">
           <span className="landing-brand">
             <span className="brand-mark" aria-hidden="true" />
             Tenure Trail
           </span>
-          <button
-            type="button"
-            className="btn ghost small"
-            onClick={onGetStarted}
-            disabled={!configured}
-          >
-            Sign in
-          </button>
+          <div className="landing-header-actions">
+            <a href="/blog" className="btn text small">
+              Blog
+            </a>
+            <button
+              type="button"
+              className="btn ghost small"
+              onClick={onGetStarted}
+              disabled={!configured}
+            >
+              Sign in
+            </button>
+          </div>
         </div>
       </header>
 
