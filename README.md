@@ -93,6 +93,9 @@ This is a **static Vite build** (`npm run build` → `dist/`). Env vars **must**
 4. Under **Environment Variables**, add (same values as your local `.env.local`):
    - `VITE_SUPABASE_URL` = your Supabase project URL (e.g. `https://xxhozrirrpxwpgvgwrnc.supabase.co`)
    - `VITE_SUPABASE_PUBLISHABLE_KEY` = your **publishable / anon** key from Supabase **Project Settings → API**
+
+   **Important:** Vite bakes these in at **build** time. Add both variables **before** the first deploy, or after adding them open **Deployments → … → Redeploy** so a new build runs with the vars set.
+
 5. Click **Deploy**. You’ll get a URL like `https://career-journal-xxx.vercel.app`.
 
 ### Supabase (required or magic links break)

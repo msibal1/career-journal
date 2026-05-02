@@ -1,7 +1,17 @@
 import { supabase } from "./supabase";
+import type { SupabaseClient } from "@supabase/supabase-js";
 import type { Entry, Settings, Store } from "./types";
 import { DEFAULT_STORE } from "./types";
 import { isUuid, newId } from "./id";
+
+function sb(): SupabaseClient {
+  if (!supabase) {
+    throw new Error(
+      "Supabase is not configured. Add VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_KEY."
+    );
+  }
+  return supabase;
+}
 
 type DbEntry = {
   id: string;
@@ -58,13 +68,14 @@ function entryToDb(userId: string, e: Entry): Record<string, unknown> {
 }
 
 export async function fetchAllForUser(userId: string): Promise<Store> {
+  const db = sb();
   const [profileRes, entriesRes] = await Promise.all([
-    supabase
+    db
       .from("profiles")
       .select("user_id,name,friday_nudge,welcome_seen,updated_at")
       .eq("user_id", userId)
       .maybeSingle(),
-    supabase
+    db
       .from("entries")
       .select(
         "id,user_id,week_iso,week_start,wins,metrics,skills,projects,notes,created_at,updated_at"
@@ -91,14 +102,14 @@ export async function fetchAllForUser(userId: string): Promise<Store> {
 }
 
 export async function upsertEntryCloud(userId: string, entry: Entry) {
-  const { error } = await supabase
+  const { error } = await sb()
     .from("entries")
     .upsert(entryToDb(userId, entry), { onConflict: "user_id,week_iso" });
   if (error) throw error;
 }
 
 export async function deleteEntryCloud(userId: string, id: string) {
-  const { error } = await supabase
+  const { error } = await sb()
     .from("entries")
     .delete()
     .eq("user_id", userId)
@@ -116,7 +127,7 @@ export async function updateProfileCloud(
   if (patch.welcomeSeen !== undefined) dbPatch.welcome_seen = patch.welcomeSeen;
   dbPatch.updated_at = new Date().toISOString();
 
-  const { error } = await supabase
+  const { error } = await sb()
     .from("profiles")
     .upsert({ user_id: userId, ...dbPatch }, { onConflict: "user_id" });
   if (error) throw error;
@@ -127,7 +138,7 @@ export async function bulkUploadEntries(userId: string, entries: Entry[]) {
   const fixed = entries.map((e) =>
     isUuid(e.id) ? e : { ...e, id: newId() }
   );
-  const { error } = await supabase
+  const { error } = await sb()
     .from("entries")
     .upsert(
       fixed.map((e) => entryToDb(userId, e)),
